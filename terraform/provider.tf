@@ -10,6 +10,13 @@ terraform {
     }
   }
 
+  backend "s3" {
+    bucket         = "tf-terraform-hello-world-state-ian-soares"
+    key            = "hello-world/terraform.tfstate"
+    dynamodb_table = "tf-terraform-hello-world-state-v1"
+    region         = "us-east-1"
+  }
+
 }
 
 provider "aws" {
